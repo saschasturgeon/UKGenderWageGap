@@ -1,5 +1,5 @@
 import unittest
-from FunctionToTest import isnumber
+from Function2Test import isnumber
 
 class TestFunction(unittest.TestCase):
     def test_positive_number(self):
