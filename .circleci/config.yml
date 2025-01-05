@@ -3,15 +3,25 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: python:3.8
+      - image: circleci/python:3.8
     steps:
       - checkout
       - run:
-          name: Install dependencies
-          command: pip install -r requirements.txt
+          name: Create virtual environment
+          command: |
+            python -m venv .venv
+            source .venv/bin/activate
+            pip install -r requirements.txt
+      - run:
+          name: Verify installed packages
+          command: |
+            source .venv/bin/activate
+            pip freeze 
       - run:
           name: Run tests
-          command: pytest TestSuite.py
+          command: |
+            source .venv/bin/activate
+            pytest  
 
 workflows:
   version: 2
