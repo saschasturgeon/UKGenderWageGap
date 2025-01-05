@@ -1,4 +1,4 @@
-pytest
-pandas
-numpy
-matplotlib
+pytest==8.3.4
+pandas==2.2.3
+numpy==2.2.1
+matplotlib3.10.0
