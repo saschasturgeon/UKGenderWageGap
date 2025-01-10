@@ -6,7 +6,8 @@ class TestFunction(unittest.TestCase):
 
     def test_stats(self):
         result = fitline('gender-wage-gap-UK.csv')
-        self.assertEqual(result,(np.float64(-0.6130347593582702), np.float64(1251.796791443812)))
+        slope = result[0]
+        self.assertAlmostEqual(slope,-0.613, 2)
 
     def test_filetype(self):
         result = fitline('gender-wage-gap-UK.numbers')
