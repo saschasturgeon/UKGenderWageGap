@@ -1,5 +1,6 @@
 import unittest
 import numpy as np
+import pandas as pd
 from Function2Test import fitline
 
 class TestFunction(unittest.TestCase):
@@ -17,6 +18,12 @@ class TestFunction(unittest.TestCase):
     def test_filetype(self):
         result = fitline('gender-wage-gap-UK.numbers')
         self.assertEqual(result, "Please enter the correct file type and try again")
+    
+    def test_columns(self):
+        data1 = pd.read_csv("gender-wage-gap-UK.csv")
+        data2 = pd.read_csv("female-labor-force-participation-UK.csv")
+        result = [len(data1.columns),len(data2.columns)]
+        self.assertEqual(result,[2,2])
 
 if __name__ == '__main__':
     unittest.main()
