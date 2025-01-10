@@ -35,5 +35,15 @@ class TestFunction(unittest.TestCase):
         result = data.iloc[:,0].corr(data.iloc[:,1])
         self.assertGreaterEqual(result,0.7)
 
+    def test_datapoints_wagegap(self):
+        data = pd.read_csv("gender-wage-gap-UK.csv")
+        rows = len(data)
+        self.assertGreaterEqual(rows,10)
+
+    def test_datapoints_laborforce(self):
+        data = pd.read_csv("female-labor-force-participation-UK.csv")
+        rows = len(data)
+        self.assertGreaterEqual(rows,10)
+
 if __name__ == '__main__':
     unittest.main()
