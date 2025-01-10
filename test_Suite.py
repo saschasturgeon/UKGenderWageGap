@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 from Function2Test import fitline
 
-class TestFunction(unittest.TestCase):
+class TestFunction(unittest.TestCase): #all tests are explained in the README
 
     def test_slope(self):
         result = fitline('gender-wage-gap-UK.csv')
