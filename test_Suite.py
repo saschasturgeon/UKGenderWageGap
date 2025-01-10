@@ -24,6 +24,11 @@ class TestFunction(unittest.TestCase):
         data2 = pd.read_csv("female-labor-force-participation-UK.csv")
         result = [len(data1.columns),len(data2.columns)]
         self.assertEqual(result,[2,2])
+    
+    def test_corrolation_wagegap(self):
+        data = pd.read_csv("gender-wage-gap-UK.csv")
+        result = data.iloc[:,0].corr(data.iloc[:,1])
+        self.assertLessEqual(result,0.7)
 
 if __name__ == '__main__':
     unittest.main()
